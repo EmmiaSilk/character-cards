@@ -64,6 +64,8 @@ body, html{
 .characterCard__nametext .stroke {
   -webkit-text-stroke: 1vh black;
   z-index: 50;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .characterCard__nametext .fill {
   color: white;

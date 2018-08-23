@@ -1,6 +1,10 @@
 <html>
   <head>
+    <!-- Meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fix ugly iframe -->
     <style>
       iframe {
         border: none;
@@ -8,9 +12,11 @@
     </style>
   </head>
   <body>
-    This is a page for previewing the applet in a way that looks better in the
-    browser. The actual applet is <a href="applet.html">here</a>.
+    <p>
+      This is a page for previewing the applet in a way that looks better in
+      the browser. The actual applet is <a href="applet.html">here</a>.
+    </p>
     <hr>
-    <iframe src="applet.html" width="400" height="400"></iframe>
+    <iframe src="applet.html?datasource=data/dataSource.js" width="400" height="400"></iframe>
   </body>
 </html>
