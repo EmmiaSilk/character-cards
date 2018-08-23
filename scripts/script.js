@@ -61,7 +61,7 @@ $(document).ready(function() {
   // Source file
   query = getUrlParameter("datasource");
   if(!query) {
-    params.source = "data/dataSource.js";
+    params.source = "data/example.js";
   }
   else {
     params.source = query;
