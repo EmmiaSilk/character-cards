@@ -1,34 +1,45 @@
 "use strict";
 
-var cardGenerator = {};
+const CardGenerator = {};
+
+CardGenerator.renderCardsInContainer = function(container, dataSource) {
+  let characterList = dataSource.characters;
+  // Render each card from data in dataSource.
+  for(let key in characterList)
+  {
+    let id = 'characterCard--'+key;
+    let data = characterList[key];
+    container.append( CardGenerator.renderCard(id, data, dataSource.definition) );
+  }
+}
 
 /* Functions for creating elements */
-cardGenerator.renderCard = function(id, data, settings) {
+CardGenerator.renderCard = function(id, character, settings) {
   let newCard = $('<div class="characterCard">');
   newCard.attr('id', id);
   // Contents
   newCard.append(
     $('<div class="characterCard__header">').append(
-      this.renderIcon(data.icon),
-      this.renderNameText(data.name),
+      this.renderIcon(character.icon),
+      this.renderNameText(character.name),
     ),
     $('<div class="characterCard__content">').append(
-      this.renderClassText(data.class),
-      this.renderStatBlock(data.stats, settings.stats),
-      this.renderTitleText(data.title),
+      this.renderClassText(character.class),
+      this.renderStatBlock(character.stats, settings.stats),
+      this.renderTitleText(character.title),
     )
   );
 
   return newCard;
 }
 
-cardGenerator.renderIcon = function(filepath) {
+CardGenerator.renderIcon = function(filepath) {
   let icon = $('<div class="characterCard__icon">');
   icon.css('background-image', 'url("' + filepath + '")');
   return icon;
 }
 
-cardGenerator.renderNameText = function(name) {
+CardGenerator.renderNameText = function(name) {
   let nameText = $('<div class="characterCard__nametext">');
   // Contents
   nameText.append('<span class="stroke">' + name + "</span>");
@@ -37,7 +48,7 @@ cardGenerator.renderNameText = function(name) {
   return nameText;
 }
 
-cardGenerator.renderClassText = function(text) {
+CardGenerator.renderClassText = function(text) {
   let classText = $('<div class="characterCard__classtext">');
   // Contents
   classText.append('<span>' + text + '</span>');
@@ -45,7 +56,7 @@ cardGenerator.renderClassText = function(text) {
   return classText;
 }
 
-cardGenerator.renderTitleText = function(title) {
+CardGenerator.renderTitleText = function(title) {
   let titleText = $('<div class="characterCard__titletext">');
   // Contents
   titleText.append('<span>' + title + '</span>');
@@ -53,7 +64,7 @@ cardGenerator.renderTitleText = function(title) {
   return titleText;
 }
 
-cardGenerator.renderStatBlock = function(statData, definitions) {
+CardGenerator.renderStatBlock = function(statData, definitions) {
   let container = $('<div class="characterCard__statblock">');
 
   // Render each row
@@ -70,7 +81,7 @@ cardGenerator.renderStatBlock = function(statData, definitions) {
 
   return container;
 }
-cardGenerator.renderStatBox = function(statName, value) {
+CardGenerator.renderStatBox = function(statName, value) {
   // Exceptions:
   if(value == null) {
     value = "???";
@@ -79,31 +90,4 @@ cardGenerator.renderStatBox = function(statName, value) {
   let newBox = $('<div class="characterCard__statbox">');
   newBox.append(statName, '<br/>', value);
   return newBox;
-}
-
-cardGenerator.nextCard = function(container) {
-  let oldCard = container.children().first();
-  let newCard = oldCard.next();
-
-  // Unhide next card
-  unhide(newCard);
-
-  // Remove old animation classes
-  newCard.removeClass('anim-card-exit');
-  oldCard.removeClass('anim-card-enter');
-
-  // Set card animation
-  oldCard.addClass('anim-card-exit');
-  newCard.addClass('anim-card-enter');
-
-  // Move old card to bottom of stack
-  container.append(oldCard);
-
-}
-
-cardGenerator.unhide = function(element) {
-  element.removeClass('hidden');
-}
-cardGenerator.hide = function(element) {
-  element.addClass('hidden');
 }
