@@ -3,5 +3,4 @@
 
 Protocol.onReady = function(source) {
   console.log("Ready!");
-  Protocol.communicationPartner = source;
 }

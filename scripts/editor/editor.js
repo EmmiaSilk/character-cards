@@ -6,8 +6,11 @@ $(document).ready(function() {
 
   // Initialize child iframe
   // let container = $("#appletContainer");
-  let iframe = $("#applet");
+  let iframe = $("iframe#applet");
   iframe.attr("src", "applet.html?editor&manual");
+  iframe.ready(function() {
+    Protocol.communicationPartner = iframe[0].contentWindow;
+  });
 
   // $("#appletContainer").html(iframe);
 
