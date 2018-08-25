@@ -20,6 +20,7 @@ var charData = {
     // Deaglan
     "deaglan": {
       "name": "Deaglan",
+      "shorten_name": 0,
       "title": "Silly Sneaky Scout",
       "class": "Wood-Elf Rogue",
       "icon": "images/deaglan.png",
@@ -31,6 +32,7 @@ var charData = {
     // // Laura
     // "laura": {
     //   "name": "Laura Lightwind",
+    //   "shorten_name": 0,
     //   "title": "Amazing Magician",
     //   "class": "Human Fighter",
     //   "icon": "images/laura.png",
@@ -42,6 +44,7 @@ var charData = {
     // Medb
     "medb": {
       "name": "Medb",
+      "shorten_name": 0,
       "title": "Maudlin Mage",
       "class": "Human Warlock",
       "icon": "images/medb.png",
@@ -53,6 +56,7 @@ var charData = {
     // Menny
     "menny": {
       "name": "Menny",
+      "shorten_name": 0,
       "title": "Klutzy Transformer",
       "class": "Gnome Druid",
       "icon": "images/menny.png",
@@ -65,6 +69,7 @@ var charData = {
     // "ben": {
     //   "name": "Benjamin",
     //   "title": "MD, Blunt Force Trauma",
+    //   "shorten_name": 0,
     //   "class": "Arakocra Monk",
     //   "icon": "images/ben.png",
     //   "stats": {
@@ -75,6 +80,7 @@ var charData = {
     // Ed
     "ed": {
       "name": "Ed",
+      "shorten_name": 0,
       "title": "Lord of All The Darkness",
       "class": "Tiefling Bard",
       "icon": "images/ed.png",
@@ -86,6 +92,7 @@ var charData = {
     // // Siebolt
     // "siebolt": {
     //   "name": "Siebolt",
+    //   "shorten_name": 0,
     //   "title": "Loyal Soldier",
     //   "class": "Fighter",
     //   "icon": "images/siebolt.png",
@@ -97,6 +104,7 @@ var charData = {
     // Beautiful Assistant
     "beautifulassistant": {
       "name": "Beautiful Assistant",
+      "shorten_name": 1,
       "title": "Resident Fuzzball",
       "class": "Stoat",
       "icon": "images/beautifulassistant.png",

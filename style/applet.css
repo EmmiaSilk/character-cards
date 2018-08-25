@@ -71,8 +71,7 @@ body, html{
   color: white;
   z-index: 51;
 }
-/* Fix for Beautiful Assistant's name being too long */
-#characterCard--beautifulassistant .characterCard__nametext {
+.characterCard__nametext[data-shorten="1"] {
   font-size: 10vh;
 }
 
