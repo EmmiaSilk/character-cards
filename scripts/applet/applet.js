@@ -1,14 +1,5 @@
 "use strict";
 
-function sendMessage(message) {
-  window.parent.postMessage(message, "*");
-}
-
-function recieveMessage(event) {
-  console.log(event);
-  console.log(event.data);
-}
-
 function openNewWindowWithObjectAsJSON(obj) {
   let str = JSON.stringify(obj, null, 2);
   let newWindow = window.open("");
@@ -50,8 +41,9 @@ $(document).ready(function() {
 
     // Enable editing capability
     if(AppletParams.editable) {
-      window.addEventListener("message", recieveMessage);
-      sendMessage("ready");
+      window.addEventListener("message", Protocol.recieveMessage);
+      Protocol.communicationPartner = window.parent;
+      Protocol.ready();
     }
   });
 
