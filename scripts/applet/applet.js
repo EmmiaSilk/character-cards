@@ -1,7 +1,22 @@
 "use strict";
 
+function sendMessage(message) {
+  window.parent.postMessage(message, "*");
+}
+
 function recieveMessage(event) {
   console.log(event);
+  console.log(event.data);
+}
+
+function openNewWindowWithObjectAsJSON(obj) {
+  let str = JSON.stringify(obj, null, 2);
+  let newWindow = window.open("");
+  newWindow.document.open();
+  newWindow.document.write(str);
+  newWindow.document.body.style.fontFamily="monospace";
+  newWindow.document.body.style.whiteSpace="pre";
+  newWindow.document.close();
 }
 
 $(document).ready(function() {
@@ -36,7 +51,7 @@ $(document).ready(function() {
     // Enable editing capability
     if(AppletParams.editable) {
       window.addEventListener("message", recieveMessage);
-      window.parent.postMessage("ready", "*");
+      sendMessage("ready");
     }
   });
 

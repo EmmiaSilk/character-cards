@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Character Cards Editor</title>
 
+    <link rel="stylesheet" href="style/editor.css">
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -15,6 +17,14 @@
       This is an editor for customizing the output of the applet.
     </p>
     <hr>
-    <iframe id="applet" height=400 width=400 frameborder=0></iframe>
+    <div id="container">
+      <div id="appletContainer"><iframe id="applet" height=400 width=400 frameborder=0></iframe></div>
+      <div id="editor">
+        <form action="javascript:;" method="post">
+          Log this: <br>
+          <input type="text" class="js-input" action="javascript:;">
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,18 @@
+#container {
+  /* background-color: blue; */
+  /* align-content: stretch; */
+}
+
+#appletContainer {
+  float: right;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#editor {
+  /* background-color:   */
+}
+
+#editor p {
+  /* left: 100px; */
+}
