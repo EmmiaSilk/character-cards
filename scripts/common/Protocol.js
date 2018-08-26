@@ -3,7 +3,7 @@
 const Protocol = {
   communicationPartner: null,
   methods: {
-    ready: 'READY', say: 'SAY'
+    ready: 'READY', say: 'SAY', set: 'SET'
   }
 };
 
@@ -23,6 +23,9 @@ Protocol.recieveMessage = function(event) {
     case Protocol.methods.say:
       Protocol.onSay(event.data.text);
       break;
+    case Protocol.methods.set:
+      Protocol.onSet(event.data);
+      break;
     case undefined:
       Protocol.exceptionUndefinedMethod(event.data);
     default:
@@ -31,10 +34,13 @@ Protocol.recieveMessage = function(event) {
 }
 
 // EVENTS
-Protocol.onReady = function(source) {}
+Protocol.onReady = function(source) {
+  console.log("Ready!");
+}
 Protocol.onSay = function(output) {
   console.log(output);
 }
+Protocol.onSet = function(data) {}
 
 // TRIGGERS
 /* Tells the other window that this window is ready */
@@ -48,6 +54,7 @@ Protocol.say = function(string) {
   message.text = string;
   this.sendMessage(message);
 }
+
 
 
 ///// Error handling

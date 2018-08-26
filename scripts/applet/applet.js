@@ -1,5 +1,8 @@
 "use strict";
 
+var charData = getDefaultDataset();
+var cardContainer;
+
 function openNewWindowWithObjectAsJSON(obj) {
   let str = JSON.stringify(obj, null, 2);
   let newWindow = window.open("");
@@ -10,41 +13,60 @@ function openNewWindowWithObjectAsJSON(obj) {
   newWindow.document.close();
 }
 
+function datasetLoaded() {
+  // Generate cards
+  CardGenerator.renderCardsInContainer(cardContainer, charData);
+  // Hide cards that should be hidden
+  let firstCard = cardContainer.children().first();
+  hide(cardContainer.children());
+  unhide(firstCard);
+
+  if(AppletParams.auto) {
+    setInterval(nextCard, 5000, cardContainer);
+  }
+  else {
+    cardContainer.click(function() {
+      nextCard(cardContainer);
+    })
+  }
+
+  // Enable editing capability
+  if(AppletParams.editable) {
+    window.addEventListener("message", Protocol.recieveMessage);
+    Protocol.communicationPartner = window.parent;
+    Protocol.ready();
+  }
+
+  // console.log(charData);
+}
+
+function getDefaultDataset() {
+  return {
+    stats: {},
+    characters: {},
+  };
+}
+
+function setDataValue(character, key, value) {
+  // Change name data
+  if(charData.characters[character]) {
+    let char = charData.characters[character];
+    if(char[key]) {
+      char[key] = value;
+    }
+  }
+}
+
 $(document).ready(function() {
+  cardContainer = $('#cardContainer');
+  if(AppletParams.noData) {
+    datasetLoaded();
+  }
+  else {
+    let script = loadScriptFromPath(AppletParams.source);
+    document.head.appendChild(script);
+    script.addEventListener('load', datasetLoaded);
+  }
 
-  // Load data as script
-  let script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.async = true;
-  script.src = AppletParams.source;
-  // Append
-  document.head.appendChild(script);
-
-  // When dataset it loaded:
-  script.addEventListener('load', function() {
-    // Generate cards
-    var cardContainer = $('#cardContainer')
-    CardGenerator.renderCardsInContainer(cardContainer, charData);
-    // Hide cards that should be hidden
-    let firstCard = cardContainer.children().first();
-    hide(cardContainer.children());
-    unhide(firstCard);
-
-    if(AppletParams.auto) {
-      setInterval(nextCard, 5000, cardContainer);
-    }
-    else {
-      cardContainer.click(function() {
-        nextCard(cardContainer);
-      })
-    }
-
-    // Enable editing capability
-    if(AppletParams.editable) {
-      window.addEventListener("message", Protocol.recieveMessage);
-      Protocol.communicationPartner = window.parent;
-      Protocol.ready();
-    }
-  });
-
+  console.log(charData);
 });

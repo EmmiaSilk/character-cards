@@ -14,18 +14,12 @@ else {
 
 // Manual (click for next card)
 query = getUrlParameter("manual");
-if(query && query != "no" && query != "false") {
-  AppletParams.auto = false;
-}
-else {
-  AppletParams.auto = true;
-}
+AppletParams.auto = !(query && query != "no" && query != "false");
 
 // Controllable by editor
 query = getUrlParameter("editor");
-if(query && query != "no" && query != "false") {
-  AppletParams.editable = true;
-}
-else {
-  AppletParams.editable = false;
-}
+AppletParams.editable = (query && query != "no" && query != "false");
+
+// Start with no source data
+query = getUrlParameter("nodata");
+AppletParams.noData = (query && query != "no" && query != "false");

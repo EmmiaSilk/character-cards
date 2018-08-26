@@ -41,3 +41,12 @@ function getUrlParameter(sParam) {
         }
     }
 };
+
+function loadScriptFromPath(source) {
+  // Load data as script
+  let script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = true;
+  script.src = source;
+  return script;
+}
