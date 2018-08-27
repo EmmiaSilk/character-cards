@@ -40,3 +40,20 @@ Protocol.onSet = function(data) {
       console.log("Invalid key for method " + Protocol.methods.set + ".");
   }
 }
+
+Protocol.onReplace = function(data) {
+  let target = data.type;
+  let id = data.id;
+  let obj = data.obj;
+
+  switch(data.type) {
+    case 'card':
+      // TODO: Special handling for replacing cards
+      break;
+    case 'dataset':
+      charData = new DataSet(obj);
+      onDatasetLoaded();
+      break;
+    default:
+  }
+}

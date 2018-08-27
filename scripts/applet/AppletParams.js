@@ -18,7 +18,7 @@ AppletParams.auto = !(query && query != "no" && query != "false");
 
 // Controllable by editor
 query = getUrlParameter("editor");
-AppletParams.editable = (query && query != "no" && query != "false");
+AppletParams.editor = (query && query != "no" && query != "false");
 
 // Start with no source data
 query = getUrlParameter("nodata");

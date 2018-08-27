@@ -15,8 +15,14 @@ function getUrlParameter(sParam) {
     }
 };
 
+function setDataset(dataset) {
+  charData = dataset;
+  onDatasetLoaded();
+}
+
 function loadScriptFromPath(source) {
   // Load data as script
+  console.log("Loading script from " + source);
   let script = document.createElement('script');
   script.type = 'text/javascript';
   script.async = true;

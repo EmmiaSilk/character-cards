@@ -30,13 +30,6 @@ function onDatasetLoaded() {
       nextCard(cardContainer);
     })
   }
-
-  // Enable editing capability
-  if(AppletParams.editable) {
-    window.addEventListener("message", Protocol.recieveMessage);
-    Protocol.communicationPartner = window.parent;
-    Protocol.ready();
-  }
 }
 
 function setDataValue(character, key, value) {
@@ -76,15 +69,19 @@ function hide(element) {
 
 $(document).ready(function() {
   cardContainer = $('#cardContainer');
-  if(AppletParams.noData) {
-    onDatasetLoaded();
+  if(AppletParams.editor) {
+    // Prepare card stuff
+    // Enable editing capability
+    window.addEventListener("message", Protocol.recieveMessage);
+    Protocol.communicationPartner = window.parent;
+    // Request up-to-date dataset
+    Protocol.get('dataset');
   }
   else {
     let script = loadScriptFromPath(AppletParams.source);
     document.head.appendChild(script);
     script.addEventListener('load', function() {
-      charData = new DataSet(generatedData);
-      onDatasetLoaded();
+      setDataset(new DataSet(generatedData));
     });
   }
 });

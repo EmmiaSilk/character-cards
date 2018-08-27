@@ -9,13 +9,23 @@ $(document).ready(function() {
   // Initialize child iframe
   // let container = $("#appletContainer");
   let iframe = $("iframe#applet");
-  iframe.attr("src", "applet.html?editor&manual&nodata");
+  iframe.attr("src", "applet.html?editor&manual");
   iframe.ready(function() {
     Protocol.communicationPartner = iframe[0].contentWindow;
   });
 
   initializeForm();
+
+  let script = loadScriptFromPath('data/example.js');
+  document.head.appendChild(script);
+  script.addEventListener('load', function() {
+    setDataset(new DataSet(generatedData));
+  });
 });
+
+function onDatasetLoaded() {
+
+}
 
 function initializeForm() {
   let form = $('form.js-character-form');
