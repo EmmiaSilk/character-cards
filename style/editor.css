@@ -5,8 +5,16 @@
 
 #appletContainer {
   float: right;
+  background-image: url('../images/app/paper.jpg');
+
   margin-left: 0.5em;
   margin-bottom: 0.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+#applet {
 }
 
 #editor {
