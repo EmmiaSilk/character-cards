@@ -1,4 +1,4 @@
-var charData = {
+var generatedData = {
   // Metadata
   "definition": {
     "stats": {
@@ -22,7 +22,7 @@ var charData = {
       "name": "Deaglan",
       "shorten_name": 0,
       "title": "Silly Sneaky Scout",
-      "class": "Wood-Elf Rogue",
+      "raceclass": "Wood-Elf Rogue",
       "icon": "images/deaglan.png",
       "stats": {
         "str": 10, "con": 15, "dex": 20,
@@ -34,7 +34,7 @@ var charData = {
     //   "name": "Laura Lightwind",
     //   "shorten_name": 0,
     //   "title": "Amazing Magician",
-    //   "class": "Human Fighter",
+    //   "raceclass": "Human Fighter",
     //   "icon": "images/laura.png",
     //   "stats": {
     //     "str": 13, "con":  8, "dex": 16,
@@ -46,7 +46,7 @@ var charData = {
       "name": "Medb",
       "shorten_name": 0,
       "title": "Maudlin Mage",
-      "class": "Human Warlock",
+      "raceclass": "Human Warlock",
       "icon": "images/medb.png",
       "stats": {
         "str":  8, "con": 12, "dex": 15,
@@ -58,7 +58,7 @@ var charData = {
       "name": "Menny",
       "shorten_name": 0,
       "title": "Klutzy Transformer",
-      "class": "Gnome Druid",
+      "raceclass": "Gnome Druid",
       "icon": "images/menny.png",
       "stats": {
         "str": 10, "con": 18, "dex":  9,
@@ -70,7 +70,7 @@ var charData = {
     //   "name": "Benjamin",
     //   "title": "MD, Blunt Force Trauma",
     //   "shorten_name": 0,
-    //   "class": "Arakocra Monk",
+    //   "raceclass": "Arakocra Monk",
     //   "icon": "images/ben.png",
     //   "stats": {
     //     "str":  8, "con": 16, "dex": 18,
@@ -82,7 +82,7 @@ var charData = {
       "name": "Ed",
       "shorten_name": 0,
       "title": "Lord of All The Darkness",
-      "class": "Tiefling Bard",
+      "raceclass": "Tiefling Bard",
       "icon": "images/ed.png",
       "stats": {
         "str": 16, "con": 11, "dex": 13,
@@ -94,7 +94,7 @@ var charData = {
     //   "name": "Siebolt",
     //   "shorten_name": 0,
     //   "title": "Loyal Soldier",
-    //   "class": "Fighter",
+    //   "raceclass": "Fighter",
     //   "icon": "images/siebolt.png",
     //   "stats": {
     //     "str": 16, "con": 15, "dex": 13,
@@ -106,7 +106,7 @@ var charData = {
       "name": "Beautiful Assistant",
       "shorten_name": 1,
       "title": "Resident Fuzzball",
-      "class": "Stoat",
+      "raceclass": "Stoat",
       "icon": "images/beautifulassistant.png",
       "stats": {
         "str":  3, "con":  8, "dex": 16,

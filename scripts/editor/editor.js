@@ -1,5 +1,7 @@
 "use strict";
 
+let charData = DataSet.getDefaultDataset();
+
 $(document).ready(function() {
   // Setup message listeners
   window.addEventListener("message", Protocol.recieveMessage);
@@ -7,12 +9,15 @@ $(document).ready(function() {
   // Initialize child iframe
   // let container = $("#appletContainer");
   let iframe = $("iframe#applet");
-  iframe.attr("src", "applet.html?editor&manual");
+  iframe.attr("src", "applet.html?editor&manual&nodata");
   iframe.ready(function() {
     Protocol.communicationPartner = iframe[0].contentWindow;
   });
 
-  // $("#appletContainer").html(iframe);
+  initializeForm();
+});
+
+function initializeForm() {
   let form = $('form.js-character-form');
 
   function getFormCharacter(form) {
@@ -50,4 +55,4 @@ $(document).ready(function() {
     let character = getFormCharacter(event.target.form);
     Protocol.setCharacterValue(character, "icon", newValue);
   };
-});
+}

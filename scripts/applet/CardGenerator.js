@@ -23,7 +23,7 @@ CardGenerator.renderCard = function(characterKey, character, settings) {
       this.renderNameText(character.name, character.shorten_name),
     ),
     $('<div class="characterCard__content">').append(
-      this.renderClassText(character.class),
+      this.renderClassText(character.raceclass),
       this.renderStatBlock(character.stats, settings.stats),
       this.renderTitleText(character.title),
     )

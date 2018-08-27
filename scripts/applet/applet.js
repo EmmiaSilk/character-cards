@@ -1,6 +1,7 @@
 "use strict";
 
-var charData = getDefaultDataset();
+var charData = new DataSet();
+var generatedData;
 var cardContainer;
 
 function openNewWindowWithObjectAsJSON(obj) {
@@ -13,7 +14,7 @@ function openNewWindowWithObjectAsJSON(obj) {
   newWindow.document.close();
 }
 
-function datasetLoaded() {
+function onDatasetLoaded() {
   // Generate cards
   CardGenerator.renderCardsInContainer(cardContainer, charData);
   // Hide cards that should be hidden
@@ -36,15 +37,6 @@ function datasetLoaded() {
     Protocol.communicationPartner = window.parent;
     Protocol.ready();
   }
-
-  // console.log(charData);
-}
-
-function getDefaultDataset() {
-  return {
-    stats: {},
-    characters: {},
-  };
 }
 
 function setDataValue(character, key, value) {
@@ -57,16 +49,42 @@ function setDataValue(character, key, value) {
   }
 }
 
+function nextCard(container) {
+  // Only switch if there is more than one card
+  if(container.children().length >= 2) {
+    let oldCard = container.children().first();
+    let newCard = oldCard.next();
+    // Unhide next card
+    unhide(newCard);
+    // Remove old animation classes
+    newCard.removeClass('anim-card-exit');
+    oldCard.removeClass('anim-card-enter');
+    // Set card animation
+    oldCard.addClass('anim-card-exit');
+    newCard.addClass('anim-card-enter');
+    // Move old card to bottom of stack
+    container.append(oldCard);
+  }
+}
+
+function unhide(element) {
+  element.removeClass('hidden');
+}
+function hide(element) {
+  element.addClass('hidden');
+}
+
 $(document).ready(function() {
   cardContainer = $('#cardContainer');
   if(AppletParams.noData) {
-    datasetLoaded();
+    onDatasetLoaded();
   }
   else {
     let script = loadScriptFromPath(AppletParams.source);
     document.head.appendChild(script);
-    script.addEventListener('load', datasetLoaded);
+    script.addEventListener('load', function() {
+      charData = new DataSet(generatedData);
+      onDatasetLoaded();
+    });
   }
-
-  console.log(charData);
 });
