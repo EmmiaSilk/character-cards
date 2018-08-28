@@ -14,7 +14,7 @@ $(document).ready(function() {
     Protocol.communicationPartner = iframe[0].contentWindow;
   });
 
-  initializeForm();
+  Forms.createEventHandlers();
 
   let script = loadScriptFromPath('data/example.js');
   document.head.appendChild(script);
@@ -24,45 +24,9 @@ $(document).ready(function() {
 });
 
 function onDatasetLoaded() {
-
-}
-
-function initializeForm() {
-  let form = $('form.js-character-form');
-
-  function getFormCharacter(form) {
-    return $(form).find('input[name="character"]')[0].value;
+  for (var key in charData.characters) {
+    let form = Forms.renderCharacterForm(charData.getCharacter(key), key)
+    $("#editor").append(form);
   }
 
-  // Editing for name
-  $('input[name="name"]')[0].oninput = function(event) {
-    let newValue = event.target.value;
-    let character = getFormCharacter(event.target.form);
-    Protocol.setCharacterValue(character, "name", newValue);
-  };
-  // Editing for shorten_name
-  $('input[name="shorten_name"]')[0].oninput = function(event) {
-    console.log(event.target);
-    let newValue = event.target.checked? 1:0 ;
-    let character = getFormCharacter(event.target.form);
-    Protocol.setCharacterValue(character, "shorten_name", newValue);
-  }
-  // Editing for title
-  $('input[name="title"]')[0].oninput = function(event) {
-    let newValue = event.target.value;
-    let character = getFormCharacter(event.target.form);
-    Protocol.setCharacterValue(character, "title", newValue);
-  };
-  // Editing for class
-  $('input[name="class"]')[0].oninput = function(event) {
-    let newValue = event.target.value;
-    let character = getFormCharacter(event.target.form);
-    Protocol.setCharacterValue(character, "class", newValue);
-  };
-  // Editing for icon
-  $('input[name="icon"]')[0].onchange = function(event) {
-    let newValue = event.target.value;
-    let character = getFormCharacter(event.target.form);
-    Protocol.setCharacterValue(character, "icon", newValue);
-  };
 }

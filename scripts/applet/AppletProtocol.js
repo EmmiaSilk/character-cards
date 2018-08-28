@@ -23,7 +23,7 @@ Protocol.onSet = function(data) {
       Cards.setTitle(card, value);
       setDataValue(character, key, value);
       break;
-    case "class":
+    case "raceclass":
       Cards.setClass(card, value);
       setDataValue(character, key, value);
       break;
