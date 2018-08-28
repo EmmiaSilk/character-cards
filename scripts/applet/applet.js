@@ -60,13 +60,6 @@ function nextCard(container) {
   }
 }
 
-function unhide(element) {
-  element.removeClass('hidden');
-}
-function hide(element) {
-  element.addClass('hidden');
-}
-
 $(document).ready(function() {
   cardContainer = $('#cardContainer');
   if(AppletParams.editor) {

@@ -24,9 +24,19 @@ $(document).ready(function() {
 });
 
 function onDatasetLoaded() {
+  let cardForms = $('#editor>.cardForms');
+  let tabs = $('#editor>.tabs');
+  // Generate forms and tabs
   for (var key in charData.characters) {
-    let form = Forms.renderCharacterForm(charData.getCharacter(key), key)
-    $('#editor').append(form);
+    let character = charData.getCharacter(key);
+    // Forms
+    let form = Forms.renderCharacterForm(character, key)
+    cardForms.append(form);
+    hide(form);
+    // Tabs
+    let tab = Forms.renderTab(character, key);
+    tabs.append(tab);
   }
-
+  // Select first tab
+  Forms.selectTab(tabs.children().first());
 }

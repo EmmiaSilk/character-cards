@@ -29,3 +29,10 @@ function loadScriptFromPath(source) {
   script.src = source;
   return script;
 }
+
+function unhide(element) {
+  element.removeClass('hidden');
+}
+function hide(element) {
+  element.addClass('hidden');
+}

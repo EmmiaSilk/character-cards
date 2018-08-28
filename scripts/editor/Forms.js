@@ -11,33 +11,69 @@ class Forms {
     function addTextInputEventHandler(event, key) {
       editor.on(event, 'input[name="'+key+'"]', function(event) {
         let newValue = event.target.value;
-        let character = Forms.getCharacterFromForm(event.target.form);
-        charData.getCharacter(character)[key] = newValue;
-        Protocol.setCharacterValue(character, key, newValue);
+        let id = Forms.getCharacterFromForm(event.target.form);
+        charData.getCharacter(id)[key] = newValue;
+        Protocol.setCharacterValue(id, key, newValue);
       });
     }
 
     function addCheckboxEventHandler(event, key) {
       editor.on(event, 'input[name="'+key+'"]', function(event) {
         let newValue = event.target.checked? 1:0 ;
-        let character = Forms.getCharacterFromForm(event.target.form);
-        charData.getCharacter(character)[key] = newValue;
-        Protocol.setCharacterValue(character, key, newValue);
+        let id = Forms.getCharacterFromForm(event.target.form);
+        charData.getCharacter(id)[key] = newValue;
+        Protocol.setCharacterValue(id, key, newValue);
       });
     }
 
     // Editing for name
-    addTextInputEventHandler('input', 'name');
+    editor.on('input', 'input[name="name"]', function(event) {
+      let newValue = event.target.value;
+      let id = Forms.getCharacterFromForm(event.target.form);
+      charData.getCharacter(id).setName(newValue);
+      Forms.renameTab(id, newValue);
+      Protocol.setCharacterValue(id, 'name', newValue);
+    });
+
+    // Other values
     addCheckboxEventHandler('input', 'shorten_name');
     addTextInputEventHandler('input', 'title');
     addTextInputEventHandler('input', 'class');
     addTextInputEventHandler('change', 'icon');
+
+    // Tab switching
+    $('#editor>.tabs').on('click', '.tab', function(event) {
+      Forms.selectTab($(event.target).closest('.tab'));
+    });
+  }
+
+  static selectTab(element) {
+    $('#editor>.tabs').children().removeClass('selected');
+    element.addClass('selected');
+    // Show the right form
+    $('#editor>.cardForms').children().addClass('hidden');
+    let form = Forms.getFormFromTab(element);
+    form.removeClass('hidden');
+
+  }
+
+  static renderTab(character, id) {
+    let tab = $('<li class="tab">')
+    tab.append('<span class="name">'+character.name+'<span>');
+    tab.attr('data-character', id);
+
+    let closeButton = $('<span class="close">&times;</span>');
+    tab.append(closeButton);
+
+
+    return tab;
   }
 
   static renderCharacterForm(character, id) {
     let form = $('<form>');
     form.addClass('js-character-form character-form');
     form.attr('autocomplete', 'off');
+    form.attr('data-character', id);
 
     let table = $('<table>');
     form.append(table);
@@ -98,5 +134,15 @@ class Forms {
   static getCharacterFromForm(form) {
     let element = $(form).find('input[name="character"]');
     return element.val();
+  }
+
+  static getFormFromTab(tab) {
+    let id = tab.attr('data-character');
+    return $('#editor .js-character-form[data-character="'+id+'"]');
+  }
+
+  static renameTab(id, newName) {
+    let tab = $('#editor>.tabs').find('.tab[data-character="'+id+'"]');
+    tab.find('.name').html(newName);
   }
 }
