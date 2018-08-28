@@ -8,6 +8,7 @@ const Protocol = {
     set: 'SET',
     replace: 'REPLACE',
     get: 'GET',
+    navigate: 'NAVIGATE',
   }
 };
 
@@ -37,6 +38,9 @@ Protocol.recieveMessage = function(event) {
     case Protocol.methods.get:
       Protocol.onGet(event.data);
       break;
+    case Protocol.methods.navigate:
+      Protocol.onNavigate(event.data.mode, event.data.position);
+      break;
     case undefined:
       Protocol.exceptionUndefinedMethod(event.data);
     default:
@@ -54,6 +58,7 @@ Protocol.onSay = function(output) {
 Protocol.onSet = function(data) {}
 Protocol.onReplace = function(data) {}
 Protocol.onGet = function(data) {}
+Protocol.onNavigate = function(type, position) {}
 
 // TRIGGERS
 /* Tells the other window that this window is ready */
@@ -80,6 +85,17 @@ Protocol.get = function(type, id) {
   let message = new Message(Protocol.methods.get);
   message.type = type;
   message.id = id;
+  this.sendMessage(message);
+}
+/**
+ * Mode can be 'relative' or 'absolute'
+ * In relative mode, position can be 'next' or 'back'
+ * In absolute mode, position is a character ID.
+ */
+Protocol.navigate = function(mode, position) {
+  let message = new Message(Protocol.methods.navigate);
+  message.mode = mode;
+  message.position = position;
   this.sendMessage(message);
 }
 

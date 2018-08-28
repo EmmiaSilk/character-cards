@@ -43,7 +43,9 @@ class Forms {
 
     // Tab switching
     $('#editor>.tabs').on('click', '.tab', function(event) {
-      Forms.selectTab($(event.target).closest('.tab'));
+      let tab = $(event.target).closest('.tab');
+      Forms.selectTab(tab);
+      Protocol.navigate('absolute', tab.attr('data-character'));
     });
   }
 
@@ -54,7 +56,7 @@ class Forms {
     $('#editor>.cardForms').children().addClass('hidden');
     let form = Forms.getFormFromTab(element);
     form.removeClass('hidden');
-
+    // Tell applet to show the given card
   }
 
   static renderTab(character, id) {

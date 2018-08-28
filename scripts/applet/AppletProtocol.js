@@ -57,3 +57,20 @@ Protocol.onReplace = function(data) {
     default:
   }
 }
+
+Protocol.onNavigate = function(mode, position) {
+  // Next/previous card
+  console.log(mode + ", " + position);
+  if(mode == 'relative') {
+    if(position === 'next') {
+      nextCard(cardContainer);
+    }
+    else if (position === 'back') {
+      previousCard(cardContainer);
+    }
+  }
+  // Switch directly to a card
+  else if (mode === 'absolute') {
+    gotoCard(cardContainer, position);
+  }
+}

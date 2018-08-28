@@ -21,3 +21,37 @@ Protocol.setCharacterValue = function(character, key, value) {
 
   this.sendMessage(message);
 }
+
+/* Tells window to navigate to a different card */
+Protocol.onNavigate = function(mode, position) {
+  let tabs = $('#editor>.tabs');
+  let current = tabs.find('.tab.selected');
+  let next = current;
+  // Find the tab to select
+  if(mode == 'relative') {
+    // Next tab
+    if(position === 'next') {
+      next = current.next();
+      if(next.length === 0) {
+        next = tabs.children().first();
+      }
+    }
+    // Previous tab
+    else if (position === 'back') {
+      next = current.prev();
+      if(next.length === 0) {
+        next = tabs.children().last();
+      }
+    }
+  }
+  // Tab by ID
+  else if (mode === 'absolute') {
+    next = tabs.find('.tab[data-character="'+position+'"]');
+    if(next.length === 0) {
+      next = current;
+    }
+  }
+  // Select the tab
+  console.log(next);
+  Forms.selectTab(next);
+}
