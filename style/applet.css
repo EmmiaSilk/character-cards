@@ -12,6 +12,7 @@ body, html{
   margin: 0px;
   height: 100vh;
   width: 100vw;
+  user-select: none;
 }
 
 #cardContainer {
@@ -79,11 +80,20 @@ body, html{
 /* Container for the bottom half of the board */
 .characterCard__content {
   height: 80%;
-  border-radius: 2vh;
-  border: 4px solid black;
-  background-color: white;
+  border-radius: 2vh 2vh 2vh 2vh;
+  /* border: 4px solid transparent; */
+  padding: 1vh;
+  /* border-image: linear-gradient(0, #774d10, #1b1b1a) 100 1 0 stretch; */
+  background-image: linear-gradient(0, #774d10, #1b1b1a);
+  /* background-color: white; */
   overflow: hidden;
 }
+
+.characterCard__canvas {
+  background-color: white;
+  border-radius: 5px
+}
+
 /* Title and class text */
 .characterCard__titletext, .characterCard__classtext {
   display: table;
