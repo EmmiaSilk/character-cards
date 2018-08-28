@@ -44,8 +44,8 @@ CardGenerator.renderNameText = function(text, shorten_name) {
   element.attr('data-value', text);
   element.attr('data-shorten', shorten_name);
   // Content
-  element.append('<span class="stroke">' + text + "</span>");
-  element.append('<span class="fill">' + text + "</span>");
+  element.append('<span class="stroke">' + text + '</span>');
+  element.append('<span class="fill">' + text + '</span>');
 
   return element;
 }
@@ -89,7 +89,7 @@ CardGenerator.renderStatBlock = function(statData, definitions) {
 CardGenerator.renderStatBox = function(statName, value, key) {
   // Exceptions:
   if(value == null) {
-    value = "???";
+    value = '???';
   }
   // Render
   let element = $('<div class="characterCard__statbox">');

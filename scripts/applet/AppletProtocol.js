@@ -11,33 +11,33 @@ Protocol.onSet = function(data) {
   if(!card) return; // TODO: Invalid character
 
   switch (key) {
-    case "name":
+    case 'name':
       Cards.setName(card, value);
       setDataValue(character, key, value);
       break;
-    case "shorten_name":
+    case 'shorten_name':
       Cards.setShortenName(card, value);
       setDataValue(character, key, value);
       break;
-    case "title":
+    case 'title':
       Cards.setTitle(card, value);
       setDataValue(character, key, value);
       break;
-    case "raceclass":
+    case 'raceclass':
       Cards.setClass(card, value);
       setDataValue(character, key, value);
       break;
-    case "icon":
+    case 'icon':
       Cards.setIcon(card, value);
       setDataValue(character, key, value);
       break;
-    case "stat":
+    case 'stat':
       // TODO: Special handling for changing stats
-      console.log("TODO: Editing stat");
+      console.log('TODO: Editing stat');
       break;
     default:
       // TODO: Invalid 'set' key
-      console.log("Invalid key for method " + Protocol.methods.set + ".");
+      console.log('Invalid key for method ' + Protocol.methods.set + '.');
   }
 }
 

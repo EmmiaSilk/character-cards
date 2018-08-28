@@ -16,11 +16,11 @@ function Message(method) {
 }
 
 Protocol.sendMessage = function(message) {
-  this.communicationPartner.postMessage(message, "*");
+  this.communicationPartner.postMessage(message, '*');
 }
 
 Protocol.recieveMessage = function(event) {
-  console.log("Message recieved " + event.data.method);
+  console.log('Message recieved ' + event.data.method);
   switch (event.data.method) {
     case Protocol.methods.ready:
       Protocol.onReady(event.source);
@@ -32,7 +32,7 @@ Protocol.recieveMessage = function(event) {
       Protocol.onSet(event.data);
       break;
     case Protocol.methods.replace:
-      console.log("Replace message recieved");
+      console.log('Replace message recieved');
       Protocol.onReplace(event.data);
     case Protocol.methods.get:
       Protocol.onGet(event.data);
@@ -46,7 +46,7 @@ Protocol.recieveMessage = function(event) {
 
 // EVENTS
 Protocol.onReady = function(source) {
-  console.log("Ready!");
+  console.log('Ready!');
 }
 Protocol.onSay = function(output) {
   console.log(output);
@@ -74,7 +74,7 @@ Protocol.replace = function(type, id, obj) {
   message.id = id;
   message.obj = obj;
   this.sendMessage(message);
-  console.log("Replace message sent");
+  console.log('Replace message sent');
 }
 Protocol.get = function(type, id) {
   let message = new Message(Protocol.methods.get);

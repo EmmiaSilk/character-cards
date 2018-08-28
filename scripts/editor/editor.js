@@ -4,12 +4,12 @@ let charData = DataSet.getDefaultDataset();
 
 $(document).ready(function() {
   // Setup message listeners
-  window.addEventListener("message", Protocol.recieveMessage);
+  window.addEventListener('message', Protocol.recieveMessage);
 
   // Initialize child iframe
-  // let container = $("#appletContainer");
-  let iframe = $("iframe#applet");
-  iframe.attr("src", "applet.html?editor&manual");
+  // let container = $('#appletContainer');
+  let iframe = $('iframe#applet');
+  iframe.attr('src', 'applet.html?editor&manual');
   iframe.ready(function() {
     Protocol.communicationPartner = iframe[0].contentWindow;
   });
@@ -26,7 +26,7 @@ $(document).ready(function() {
 function onDatasetLoaded() {
   for (var key in charData.characters) {
     let form = Forms.renderCharacterForm(charData.getCharacter(key), key)
-    $("#editor").append(form);
+    $('#editor').append(form);
   }
 
 }

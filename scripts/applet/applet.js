@@ -6,11 +6,11 @@ var cardContainer;
 
 function openNewWindowWithObjectAsJSON(obj) {
   let str = JSON.stringify(obj, null, 2);
-  let newWindow = window.open("");
+  let newWindow = window.open('');
   newWindow.document.open();
   newWindow.document.write(str);
-  newWindow.document.body.style.fontFamily="monospace";
-  newWindow.document.body.style.whiteSpace="pre";
+  newWindow.document.body.style.fontFamily='monospace';
+  newWindow.document.body.style.whiteSpace='pre';
   newWindow.document.close();
 }
 
@@ -72,7 +72,7 @@ $(document).ready(function() {
   if(AppletParams.editor) {
     // Prepare card stuff
     // Enable editing capability
-    window.addEventListener("message", Protocol.recieveMessage);
+    window.addEventListener('message', Protocol.recieveMessage);
     Protocol.communicationPartner = window.parent;
     // Request up-to-date dataset
     Protocol.get('dataset');

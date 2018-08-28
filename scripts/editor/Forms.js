@@ -27,11 +27,11 @@ class Forms {
     }
 
     // Editing for name
-    addTextInputEventHandler("input", "name");
-    addCheckboxEventHandler("input", "shorten_name");
-    addTextInputEventHandler("input", "title");
-    addTextInputEventHandler("input", "class");
-    addTextInputEventHandler("change", "icon");
+    addTextInputEventHandler('input', 'name');
+    addCheckboxEventHandler('input', 'shorten_name');
+    addTextInputEventHandler('input', 'title');
+    addTextInputEventHandler('input', 'class');
+    addTextInputEventHandler('change', 'icon');
   }
 
   static renderCharacterForm(character, id) {
@@ -43,27 +43,27 @@ class Forms {
     form.append(table);
     table.append(
       Forms.renderTableRow(
-        "Character:",
+        'Character:',
         Forms.renderTextbox('character', id).attr('disabled', 1)
       ),
       Forms.renderTableRow(
-        "Name:",
+        'Name:',
         Forms.renderTextbox('name', character.name)
       ),
       Forms.renderTableRow(
-        "Small Name?",
+        'Small Name?',
         Forms.renderCheckbox('shorten_name', character.shorten_name)
       ),
       Forms.renderTableRow(
-        "Title:",
+        'Title:',
         Forms.renderTextbox('title', character.title)
       ),
       Forms.renderTableRow(
-        "Race/Class:",
+        'Race/Class:',
         Forms.renderTextbox('raceclass', character.raceclass)
       ),
       Forms.renderTableRow(
-        "Icon:",
+        'Icon:',
         Forms.renderTextbox('icon', character.icon)
       ),
     );
@@ -81,7 +81,7 @@ class Forms {
   static renderCheckbox(name, value) {
     let element = $('<input type="checkbox">');
     element.attr('name', name);
-    if(value == "1") {
+    if(value == '1') {
       element.attr('checked', value);
     }
     return element;
@@ -90,7 +90,7 @@ class Forms {
   static renderTableRow(...content) {
     let row = $('<tr>');
     for (let element of content) {
-      row.append($("<td>").append(element));
+      row.append($('<td>').append(element));
     }
     return row;
   }

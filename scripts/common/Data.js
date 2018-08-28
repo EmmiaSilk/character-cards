@@ -66,15 +66,15 @@ class DataSet {
   static getDefaultDataset() {
     let dataset = new DataSet();
     dataset.definition.stats.push(
-      { str: "STR", con: "CON", dex: "DEX" },
-      { int: "INT", wis: "WIS", cha: "CHA" },
+      { str: 'STR', con: 'CON', dex: 'DEX' },
+      { int: 'INT', wis: 'WIS', cha: 'CHA' },
     );
 
     let character = new Character();
-    character.setName("Example");
+    character.setName('Example');
     character.setShorten(0);
-    character.setTitle("Example Title");
-    character.setRaceClass("Race Class");
+    character.setTitle('Example Title');
+    character.setRaceClass('Race Class');
     character.setIcon('images/deaglan.png');
     character.setStats(
       { // Stats
@@ -89,11 +89,11 @@ class DataSet {
 }
 class Character {
   constructor(obj) {
-    this.name = "";
+    this.name = '';
     this.shorten_name = 0;
-    this.title = "";
-    this.raceclass = "";
-    this.icon = "";
+    this.title = '';
+    this.raceclass = '';
+    this.icon = '';
     this.stats = {};
 
     if(obj) {
