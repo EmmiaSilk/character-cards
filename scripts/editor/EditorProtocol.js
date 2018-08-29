@@ -13,10 +13,19 @@ Protocol.onGet = function(data) {
 
 // TRIGGERS
 /* Tells the other window to alter a value in the dataset */
-Protocol.setCharacterValue = function(character, key, value) {
+Protocol.setCharacterValue = function(id, key, value) {
   let message = new Message(Protocol.methods.set);
-  message.character = character;
+  message.character = id;
   message.key = key;
+  message.value = value;
+
+  this.sendMessage(message);
+}
+Protocol.setStat = function(id, stat, value) {
+  let message = new Message(Protocol.methods.set);
+  message.character = id;
+  message.key = 'stat';
+  message.stat = stat;
   message.value = value;
 
   this.sendMessage(message);

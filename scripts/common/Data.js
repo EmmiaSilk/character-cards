@@ -119,4 +119,7 @@ class Character {
   setStats(statblock) {
     this.stats = statblock;
   }
+  setStat(name, value) {
+    this.stats[name] = value;
+  }
 }

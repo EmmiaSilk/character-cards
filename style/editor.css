@@ -46,6 +46,20 @@ body {
   margin-right: 0.5em;
   margin-bottom: 0.25em;
 }
+.character-form>.charInfo {
+  margin-bottom: 0.5em;
+}
+
+.character-form .stats {}
+.character-form .stats input {
+  width: 5em;
+}
+.character-form .stats {
+  text-align: center;
+  /* color: red; */
+  font-weight: bold;
+}
+
 
 .tabs {
   list-style-type: none;

@@ -38,8 +38,25 @@ class Forms {
     // Other values
     addCheckboxEventHandler('input', 'shorten_name');
     addTextInputEventHandler('input', 'title');
-    addTextInputEventHandler('input', 'class');
+    addTextInputEventHandler('input', 'raceclass');
     addTextInputEventHandler('change', 'icon');
+
+    // Stat blocks
+    editor.on('change', 'input[name="stat"]', function(event) {
+      let target = $(event.target);
+      let stat = target.attr('data-stat');
+      let value = event.target.value;
+
+      let form = event.target.form;
+      let id = $(form).attr('data-character');
+
+      // Set local values
+      let character = charData.getCharacter(id);
+      character.setStat(stat, value);
+      // Set outbound values
+      Protocol.setStat(id, stat, value);
+
+    });
 
     // Tab switching
     $('#editor>.tabs').on('click', '.tab', function(event) {
@@ -148,7 +165,8 @@ class Forms {
     form.attr('autocomplete', 'off');
     form.attr('data-character', id);
 
-    let table = $('<table>');
+    // Character info
+    let table = $('<table class="charInfo">');
     form.append(table);
     table.append(
       Forms.renderTableRow(
@@ -176,6 +194,31 @@ class Forms {
         Forms.renderTextbox('icon', character.icon)
       ),
     );
+
+    // Stats
+    let statBlock = $('<div class="stats">');
+    let statDef = charData.definition.stats;
+    form.append(statBlock);
+    // console.log(character.name);
+    for(let set in statDef) {
+      let table2 = $('<table>');
+      let row1 = $('<tr>');
+      let row2 = $('<tr>');
+      table2.append(row1, row2);
+      for(let stat in statDef[set]) {
+        let label = $('<span class="label">');
+        label.attr('data-stat', stat);
+        label.html(statDef[set][stat]);
+        row1.append(label);
+        label.wrap("<td>");
+
+        let input = Forms.renderTextbox('stat', character.stats[stat]);
+        input.attr('data-stat', stat);
+        row2.append(input);
+        input.wrap("<td>");
+      }
+      statBlock.append(table2);
+    }
 
     return form;
   }

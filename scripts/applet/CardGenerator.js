@@ -96,6 +96,10 @@ CardGenerator.renderStatBox = function(statName, value, key) {
   // Render
   let element = $('<div class="characterCard__statbox">');
   element.attr('data-stat', key);
-  element.append(statName, '<br/>', value);
+  element.append(
+    $('<span class="label">').html(statName),
+    '<br/>',
+    $('<span class="value">').html(value)
+  );
   return element;
 }

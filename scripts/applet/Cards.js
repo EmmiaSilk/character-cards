@@ -40,3 +40,9 @@ Cards.setIcon = function(card, newPath) {
   iconElement.attr('data-path', newPath);
   iconElement.css('background-image', 'url("'+newPath+'")');
 }
+
+Cards.setStat = function(card, stat, newValue) {
+  let statElement = $(card).find('.characterCard__statbox[data-stat="'+stat+'"]');
+  let valueElement = statElement.find('.value');
+  valueElement.html(newValue);
+}

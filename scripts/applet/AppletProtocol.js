@@ -2,38 +2,39 @@
 "use strict";
 
 Protocol.onSet = function(data) {
-  let character = data.character;
+  let id = data.character;
   let key = data.key;
   let value = data.value;
-  console.log('Setting ' + key + ' to ' + value + ' for character ' + character);
+  let statId = data.stat;
 
-  let card = Cards.get(character);
+  let character = charData.getCharacter(id);
+  let card = Cards.get(id);
   if(!card) return; // TODO: Invalid character
 
   switch (key) {
     case 'name':
       Cards.setName(card, value);
-      setDataValue(character, key, value);
+      character.setName(value);
       break;
     case 'shorten_name':
       Cards.setShortenName(card, value);
-      setDataValue(character, key, value);
+      character.setShorten(value);
       break;
     case 'title':
       Cards.setTitle(card, value);
-      setDataValue(character, key, value);
+      character.setTitle(value);
       break;
     case 'raceclass':
       Cards.setClass(card, value);
-      setDataValue(character, key, value);
+      character.setRaceClass(value);
       break;
     case 'icon':
       Cards.setIcon(card, value);
-      setDataValue(character, key, value);
+      character.setIcon(value);
       break;
     case 'stat':
-      // TODO: Special handling for changing stats
-      console.log('TODO: Editing stat');
+      Cards.setStat(card, statId, value);
+      character.setStat(statId, value);
       break;
     default:
       // TODO: Invalid 'set' key
