@@ -31,14 +31,14 @@ Protocol.onNavigate = function(mode, position) {
   if(mode == 'relative') {
     // Next tab
     if(position === 'next') {
-      next = current.next();
+      next = current.next('.tab');
       if(next.length === 0) {
         next = tabs.children().first();
       }
     }
     // Previous tab
     else if (position === 'back') {
-      next = current.prev();
+      next = current.prev('.tab');
       if(next.length === 0) {
         next = tabs.children().last();
       }

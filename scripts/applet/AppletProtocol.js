@@ -74,3 +74,26 @@ Protocol.onNavigate = function(mode, position) {
     gotoCard(cardContainer, position);
   }
 }
+
+Protocol.onAdd = function(type, id, obj) {
+  switch(type) {
+    case 'character':
+      let character = new Character(obj);
+      charData.setCharacter(id, character);
+      addCard(id, character);
+      break;
+    default:
+      // TODO: Invalid type handler
+  }
+}
+
+Protocol.onDelete = function(type, id) {
+  switch (type) {
+    case 'character':
+      charData.removeCharacter(id);
+      deleteCard(id);
+      break;
+    default:
+
+  }
+}

@@ -33,6 +33,32 @@ function setDataValue(character, key, value) {
   }
 }
 
+function deleteCard(id) {
+  let card = Cards.get(id);
+  card.remove();
+}
+
+function addCard(id, character) {
+  // Get canonical last card
+  let lastKey = null;
+  for(let key in charData.characters) {
+    lastKey = key;
+  }
+  let lastCard = Cards.get(lastKey);
+  // Render new card
+  let newCard = CardGenerator.renderCard(id, character, charData.definition);
+  if(lastCard === null) {
+    cardContainer.append(newCard);
+  }
+  else {
+    newCard.insertAfter(lastCard);
+  }
+  // Select new card
+  gotoCard(cardContainer, id);
+
+  console.log('Card added: ' + id);
+}
+
 function nextCard(container) {
   let cards = container.children();
   // Only switch if there is more than one card

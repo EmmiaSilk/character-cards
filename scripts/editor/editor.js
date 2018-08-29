@@ -26,17 +26,31 @@ $(document).ready(function() {
 function onDatasetLoaded() {
   let cardForms = $('#editor>.cardForms');
   let tabs = $('#editor>.tabs');
+
+  // "New tab" button
+  let button = Forms.renderNewTabButton();
+  tabs.append(button);
+
   // Generate forms and tabs
   for (var key in charData.characters) {
     let character = charData.getCharacter(key);
     // Forms
-    let form = Forms.renderCharacterForm(character, key)
-    cardForms.append(form);
-    hide(form);
+    // let form = Forms.renderCharacterForm(character, key)
+    // cardForms.append(form);
+    // hide(form);
     // Tabs
-    let tab = Forms.renderTab(character, key);
-    tabs.append(tab);
+    Forms.addCharacterForm(character, key);
+    // let tab = Forms.renderTab(character, key);
+    // tabs.append(tab);
   }
   // Select first tab
   Forms.selectTab(tabs.children().first());
+
+}
+
+function addNewCharacter(id) {
+  let character = new Character();
+  charData.setCharacter(id, character);
+  Forms.addCharacterForm(character, id);
+  Protocol.add('character', id, character);
 }

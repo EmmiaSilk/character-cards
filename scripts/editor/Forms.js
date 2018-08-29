@@ -43,10 +43,72 @@ class Forms {
 
     // Tab switching
     $('#editor>.tabs').on('click', '.tab', function(event) {
-      let tab = $(event.target).closest('.tab');
+      let target = $(event.target);
+      // Don't switch if the user is trying to delete the tab
+      if(target.is('.close')) {
+        return;
+      }
+      // Switch to this tab
+      let tab = target.closest('.tab');
       Forms.selectTab(tab);
       Protocol.navigate('absolute', tab.attr('data-character'));
     });
+
+    // New tab
+    $('#editor>.tabs').on('click', '.newtab', function(event) {
+      // Get new character ID
+      let id = prompt('Character ID');
+      // Ensure ID isn't already in use
+      if(charData.getCharacter(id)) {
+        alert('Character already exists with id ' + id);
+        return;
+      }
+      // Create new character
+      addNewCharacter(id);
+    });
+
+    // Delete tab
+    $('#editor>.tabs').on('click', '.tab>.close', function(event) {
+      let tab = $(event.target).parent('.tab');
+      let id = tab.attr('data-character');
+
+      let confirmed = confirm('Are you sure you want to delete '+id+'?');
+      if(confirmed) {
+        console.log('Deleted character ' + id);
+        // Local delete
+        Forms.removeCharacterForm(id);
+        Protocol.delete('character', id);
+        // Ensure a tab is selected
+        let selected = $('#editor>.tabs').find('.tab.selected');
+        if(selected.length == 0){
+          // // Select first tab
+          let firstTab = $('#editor>.tabs').children().first('.tab');
+          let firstId = firstTab.attr('data-character');
+          Forms.selectTab(firstTab);
+          Protocol.navigate('absolute', firstId);
+        }
+      }
+    });
+  }
+
+  static addCharacterForm(character, id) {
+    // Tab
+    let newTabButton = $('#editor>.tabs>.newtab');
+    let tab = Forms.renderTab(character, id);
+    newTabButton.before(tab);
+    // Form
+    let form = Forms.renderCharacterForm(character, id)
+    $('#editor>.cardForms').append(form);
+    hide(form);
+  }
+
+  static removeCharacterForm(id) {
+    // Tab
+    let tab = $('#editor>.tabs').find('.tab[data-character="'+id+'"]');
+    tab.remove();
+    // Form
+    let form = $('#editor>.cardForms').find('.character-form[data-character="'+id+'"]');
+    form.remove();
   }
 
   static selectTab(element) {
@@ -56,17 +118,26 @@ class Forms {
     $('#editor>.cardForms').children().addClass('hidden');
     let form = Forms.getFormFromTab(element);
     form.removeClass('hidden');
-    // Tell applet to show the given card
+
+    console.log("Selected");
   }
 
   static renderTab(character, id) {
-    let tab = $('<li class="tab">')
+    let tab = $('<li class="tab">');
     tab.append('<span class="name">'+character.name+'<span>');
     tab.attr('data-character', id);
 
     let closeButton = $('<span class="close">&times;</span>');
     tab.append(closeButton);
 
+    return tab;
+  }
+
+  static renderNewTabButton() {
+    let tab = $('<li class="newtab">');
+
+    let button = $('<span class="button">&plus;</span>');
+    tab.append(button);
 
     return tab;
   }
