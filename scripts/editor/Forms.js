@@ -74,14 +74,20 @@ class Forms {
     // New tab
     $('#editor>.tabs').on('click', '.newtab', function(event) {
       // Get new character ID
-      let id = prompt('Character ID');
+      let name = prompt('Character name');
+      name = name.trim();
       // Ensure ID isn't already in use
+      let id = name.toLowerCase().replace(/\s/g,'');
+      if(id == "") {
+        alert('Cannot use blank id');
+        return;
+      }
       if(charData.getCharacter(id)) {
         alert('Character already exists with id ' + id);
         return;
       }
       // Create new character
-      addNewCharacter(id);
+      addNewCharacter(id, name);
     });
 
     // Delete tab

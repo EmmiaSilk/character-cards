@@ -48,8 +48,11 @@ function onDatasetLoaded() {
 
 }
 
-function addNewCharacter(id) {
+function addNewCharacter(id, name) {
   let character = new Character();
+  if(name) {
+    character.setName(name);
+  }
   charData.setCharacter(id, character);
   Forms.addCharacterForm(character, id);
   Protocol.add('character', id, character);

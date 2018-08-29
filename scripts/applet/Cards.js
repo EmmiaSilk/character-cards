@@ -44,5 +44,8 @@ Cards.setIcon = function(card, newPath) {
 Cards.setStat = function(card, stat, newValue) {
   let statElement = $(card).find('.characterCard__statbox[data-stat="'+stat+'"]');
   let valueElement = statElement.find('.value');
+  if(newValue === "") {
+    newValue = "???";
+  }
   valueElement.html(newValue);
 }
