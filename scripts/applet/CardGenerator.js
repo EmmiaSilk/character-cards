@@ -3,6 +3,7 @@
 const CardGenerator = {};
 
 CardGenerator.renderCardsInContainer = function(container, dataSource) {
+  container.html("");
   let characterList = dataSource.characters;
   // Render each card from data in dataSource.
   for(let key in characterList)

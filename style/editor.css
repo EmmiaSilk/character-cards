@@ -20,8 +20,12 @@ noscript p {
   display: flex;
   max-width: 70em;
   margin: auto;
-  justify-content: space-between;
+  justify-content:flex-end;
   /* width: 100%; */
+}
+.instructions {
+  max-width: 40em;
+  margin: auto;
 }
 
 #appletContainer {
@@ -41,13 +45,29 @@ noscript p {
 }
 
 #editor {
-  /* background-color:   */
+  width: 100%;
 }
 
 #editor p {
   /* left: 100px; */
 }
 
+#saveButton, #loadButton+label, #newButton {
+  /* background-color: blue; */
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: 1px solid gray;
+  padding: 0.2em;
+}
+#saveButton:focus, #saveButton:hover,
+#loadButton:focus+label, #loadButton+label:hover,
+#newButton:focus, #newButton:hover {
+  background-color: lightblue;
+}
+#loadButton {
+  display: none;
+}
 .character-form {
   display: inline-block;
   /* border: 1px solid black; */
@@ -62,6 +82,7 @@ noscript p {
 .character-form .stats {}
 .character-form .stats input {
   width: 5em;
+  text-align: center;
 }
 .character-form .stats {
   text-align: center;
@@ -75,6 +96,7 @@ noscript p {
   -webkit-margin-before: 0;
   -webkit-padding-start: 0;
   border-bottom: 1px solid black;
+  width: 100%;
   /* Make unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -83,7 +105,7 @@ noscript p {
 }
 .tabs>li {
   position: relative;
-  display: inline;
+  display: inline-block;
   border: 1px solid gray;
   border-radius: 10px 10px 0 0;
   padding: 0.2em 1em 1px 1em;

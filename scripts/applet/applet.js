@@ -4,16 +4,6 @@ var charData = new DataSet();
 var generatedData;
 var cardContainer;
 
-function openNewWindowWithObjectAsJSON(obj) {
-  let str = JSON.stringify(obj, null, 2);
-  let newWindow = window.open('');
-  newWindow.document.open();
-  newWindow.document.write(str);
-  newWindow.document.body.style.fontFamily='monospace';
-  newWindow.document.body.style.whiteSpace='pre';
-  newWindow.document.close();
-}
-
 function onDatasetLoaded() {
   // Generate cards
   CardGenerator.renderCardsInContainer(cardContainer, charData);

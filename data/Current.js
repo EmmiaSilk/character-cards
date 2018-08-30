@@ -1,18 +1,19 @@
-var generatedData = {
+var generatedData =
+{
   // Metadata
   "definition": {
-    "stats": {
-      0: {
+    "stats": [
+      {
         "str": "STR",
         "con": "CON",
-        "dex": "DEX",
+        "dex": "DEX"
       },
-      1: {
+      {
         "int": "INT",
         "wis": "WIS",
-        "cha": "CHA",
-      },
-    }
+        "cha": "CHA"
+      }
+    ]
   },
 
   // Characters list
@@ -112,7 +113,7 @@ var generatedData = {
         "str":  3, "con":  8, "dex": 16,
         "int":  2, "wis": 12, "cha":  3
       }
-    },
+    }
 
   }
-};
+}

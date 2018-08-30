@@ -75,6 +75,9 @@ class Forms {
     $('#editor>.tabs').on('click', '.newtab', function(event) {
       // Get new character ID
       let name = prompt('Character name');
+      if(name == null) {
+        return;
+      }
       name = name.trim();
       // Ensure ID isn't already in use
       let id = name.toLowerCase().replace(/\s/g,'');
