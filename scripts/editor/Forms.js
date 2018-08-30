@@ -104,6 +104,7 @@ class Forms {
         // Local delete
         Forms.removeCharacterForm(id);
         Protocol.delete('character', id);
+        charData.removeCharacter(id);
         // Ensure a tab is selected
         let selected = $('#editor>.tabs').find('.tab.selected');
         if(selected.length == 0){
