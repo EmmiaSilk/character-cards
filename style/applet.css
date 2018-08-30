@@ -15,6 +15,15 @@ body, html{
   user-select: none;
 }
 
+noscript p {
+  padding: 1em;
+  background-color: #ff999999;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  font-family: Arial;
+}
+
 #cardContainer {
   position: relative;
   width: 100vw;

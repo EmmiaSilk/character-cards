@@ -5,6 +5,15 @@
 body {
   max-width: 100vw;
 }
+
+noscript p {
+  padding: 1em;
+  background-color: #ff999999;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
 #container {
   /* background-color: blue; */
   /* align-content: stretch; */
