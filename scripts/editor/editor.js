@@ -60,10 +60,10 @@ function initializeSave() {
     // Set save button HREF
     save.attr('href', uri);
   });
-  // Tell clicks to be ignored, preventing errors.
-  save.on("click", function(event) {
-    return false;
-  });
+  // // Tell clicks to be ignored, preventing errors.
+  // save.on("click", function(event) {
+  //   return false;
+  // });
 
   load.on("change", function(event) {
     let target = event.target;
