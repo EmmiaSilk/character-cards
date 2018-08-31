@@ -75,7 +75,7 @@ class DataSet {
     character.setShorten(0);
     character.setTitle('Example Title');
     character.setRaceClass('Race Class');
-    character.setIcon('images/deaglan.png');
+    character.setIcon('images/example/laura.png');
     character.setStats(
       { // Stats
         str: 10, con: 10, dex: 20,
