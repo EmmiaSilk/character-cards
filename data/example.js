@@ -1,4 +1,4 @@
-var generatedData = 
+var generatedData =
 {
   "definition": {
     "stats": [
@@ -20,7 +20,7 @@ var generatedData =
       "shorten_name": 0,
       "title": "Friendly Local",
       "raceclass": "Human Vistana Warlock",
-      "icon": "images/mimi.png",
+      "icon": "images/example/mimi.png",
       "stats": {
         "str": "8",
         "con": "12",
@@ -35,7 +35,7 @@ var generatedData =
       "shorten_name": 0,
       "title": "Feathered Friend",
       "raceclass": "Raven Familiar",
-      "icon": "images/chia.png",
+      "icon": "images/example/chia.png",
       "stats": {
         "str": "2",
         "con": "8",
@@ -50,7 +50,7 @@ var generatedData =
       "shorten_name": 0,
       "title": "Not a real police officer",
       "raceclass": "Human Child",
-      "icon": "images/rosalie.png",
+      "icon": "images/example/rosalie.png",
       "stats": {
         "cha": "15",
         "wis": "14",
@@ -65,7 +65,7 @@ var generatedData =
       "shorten_name": 0,
       "title": "Amazing Magician",
       "raceclass": "Human fighter",
-      "icon": "images/laura.png",
+      "icon": "images/example/laura.png",
       "stats": {
         "str": "13",
         "con": "12",
