@@ -1,6 +1,5 @@
-var generatedData =
+var generatedData = 
 {
-  // Metadata
   "definition": {
     "stats": [
       {
@@ -15,105 +14,66 @@ var generatedData =
       }
     ]
   },
-
-  // Characters list
   "characters": {
-    // Deaglan
-    "deaglan": {
-      "name": "Deaglan",
+    "mimi": {
+      "name": "Mimi",
       "shorten_name": 0,
-      "title": "Silly Sneaky Scout",
-      "raceclass": "Wood-Elf Rogue",
-      "icon": "images/deaglan.png",
+      "title": "Friendly Local",
+      "raceclass": "Human Vistana Warlock",
+      "icon": "images/mimi.png",
       "stats": {
-        "str": 10, "con": 15, "dex": 20,
-        "int": 19, "wis": 12, "cha": 12
+        "str": "8",
+        "con": "12",
+        "dex": "12",
+        "int": "13",
+        "wis": "14",
+        "cha": "20"
       }
     },
-    // // Laura
-    // "laura": {
-    //   "name": "Laura Lightwind",
-    //   "shorten_name": 0,
-    //   "title": "Amazing Magician",
-    //   "raceclass": "Human Fighter",
-    //   "icon": "images/laura.png",
-    //   "stats": {
-    //     "str": 13, "con":  8, "dex": 16,
-    //     "int": 13, "wis": 10, "cha": 15
-    //   }
-    // },
-    // Medb
-    "medb": {
-      "name": "Medb",
+    "chia": {
+      "name": "Chia",
       "shorten_name": 0,
-      "title": "Maudlin Mage",
-      "raceclass": "Human Warlock",
-      "icon": "images/medb.png",
+      "title": "Feathered Friend",
+      "raceclass": "Raven Familiar",
+      "icon": "images/chia.png",
       "stats": {
-        "str":  8, "con": 12, "dex": 15,
-        "int": 10, "wis": 13, "cha": 18
+        "str": "2",
+        "con": "8",
+        "dex": "14",
+        "int": "2",
+        "wis": "12",
+        "cha": "6"
       }
     },
-    // Menny
-    "menny": {
-      "name": "Menny",
+    "rosalie": {
+      "name": "Rosalie Itzel",
       "shorten_name": 0,
-      "title": "Klutzy Transformer",
-      "raceclass": "Gnome Druid",
-      "icon": "images/menny.png",
+      "title": "Not a real police officer",
+      "raceclass": "Human Child",
+      "icon": "images/rosalie.png",
       "stats": {
-        "str": 10, "con": 18, "dex":  9,
-        "int": 13, "wis": 16, "cha": 13
+        "cha": "15",
+        "wis": "14",
+        "int": "7",
+        "dex": "13",
+        "con": "12",
+        "str": "8"
       }
     },
-    // // Benjamin
-    // "ben": {
-    //   "name": "Benjamin",
-    //   "title": "MD, Blunt Force Trauma",
-    //   "shorten_name": 0,
-    //   "raceclass": "Arakocra Monk",
-    //   "icon": "images/ben.png",
-    //   "stats": {
-    //     "str":  8, "con": 16, "dex": 18,
-    //     "int":  8, "wis": 16, "cha":  8
-    //   }
-    // },
-    // Ed
-    "ed": {
-      "name": "Ed",
+    "laura": {
+      "name": "Laura",
       "shorten_name": 0,
-      "title": "Lord of All The Darkness",
-      "raceclass": "Tiefling Bard",
-      "icon": "images/ed.png",
+      "title": "Amazing Magician",
+      "raceclass": "Human fighter",
+      "icon": "images/laura.png",
       "stats": {
-        "str": 16, "con": 11, "dex": 13,
-        "int": 12, "wis": 13, "cha": 19
-      }
-    },
-    // // Siebolt
-    // "siebolt": {
-    //   "name": "Siebolt",
-    //   "shorten_name": 0,
-    //   "title": "Loyal Soldier",
-    //   "raceclass": "Fighter",
-    //   "icon": "images/siebolt.png",
-    //   "stats": {
-    //     "str": 16, "con": 15, "dex": 13,
-    //     "int": 10, "wis": 14, "cha":  9
-    //   }
-    // },
-    // Beautiful Assistant
-    "beautifulassistant": {
-      "name": "Beautiful Assistant",
-      "shorten_name": 1,
-      "title": "Resident Fuzzball",
-      "raceclass": "Stoat",
-      "icon": "images/beautifulassistant.png",
-      "stats": {
-        "str":  3, "con":  8, "dex": 16,
-        "int":  2, "wis": 12, "cha":  3
+        "str": "13",
+        "con": "12",
+        "dex": "16",
+        "int": "12",
+        "wis": "10",
+        "cha": "15"
       }
     }
-
   }
 }
