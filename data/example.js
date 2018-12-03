@@ -1,110 +1,79 @@
-var charData = {
-  // Metadata
+var generatedData =
+{
   "definition": {
-    "stats": {
-      0: {
+    "stats": [
+      {
         "str": "STR",
         "con": "CON",
-        "dex": "DEX",
+        "dex": "DEX"
       },
-      1: {
+      {
         "int": "INT",
         "wis": "WIS",
-        "cha": "CHA",
-      },
-    }
+        "cha": "CHA"
+      }
+    ]
   },
-
-  // Characters list
   "characters": {
-    // Deaglan
-    "deaglan": {
-      "name": "Deaglan",
-      "title": "Silly Sneaky Scout",
-      "class": "Wood-Elf Rogue",
-      "icon": "images/deaglan.png",
+    "mimi": {
+      "name": "Mimi",
+      "shorten_name": 0,
+      "title": "Friendly Local",
+      "raceclass": "Human Vistana Warlock",
+      "icon": "images/example/mimi.png",
       "stats": {
-        "str": 10, "con": 15, "dex": 20,
-        "int": 19, "wis": 12, "cha": 12
+        "str": "8",
+        "con": "12",
+        "dex": "12",
+        "int": "13",
+        "wis": "14",
+        "cha": "20"
       }
     },
-    // // Laura
-    // "laura": {
-    //   "name": "Laura Lightwind",
-    //   "title": "Amazing Magician",
-    //   "class": "Human Fighter",
-    //   "icon": "images/laura.png",
-    //   "stats": {
-    //     "str": 13, "con":  8, "dex": 16,
-    //     "int": 13, "wis": 10, "cha": 15
-    //   }
-    // },
-    // Medb
-    "medb": {
-      "name": "Medb",
-      "title": "Maudlin Mage",
-      "class": "Human Warlock",
-      "icon": "images/medb.png",
+    "chia": {
+      "name": "Chia",
+      "shorten_name": 0,
+      "title": "Feathered Friend",
+      "raceclass": "Raven Familiar",
+      "icon": "images/example/chia.png",
       "stats": {
-        "str":  8, "con": 12, "dex": 15,
-        "int": 10, "wis": 13, "cha": 18
+        "str": "2",
+        "con": "8",
+        "dex": "14",
+        "int": "2",
+        "wis": "12",
+        "cha": "6"
       }
     },
-    // Menny
-    "menny": {
-      "name": "Menny",
-      "title": "Klutzy Transformer",
-      "class": "Gnome Druid",
-      "icon": "images/menny.png",
+    "rosalie": {
+      "name": "Rosalie Itzel",
+      "shorten_name": 0,
+      "title": "Not a real police officer",
+      "raceclass": "Human Child",
+      "icon": "images/example/rosalie.png",
       "stats": {
-        "str": 10, "con": 18, "dex":  9,
-        "int": 13, "wis": 16, "cha": 13
+        "cha": "15",
+        "wis": "14",
+        "int": "7",
+        "dex": "13",
+        "con": "12",
+        "str": "8"
       }
     },
-    // // Benjamin
-    // "ben": {
-    //   "name": "Benjamin",
-    //   "title": "MD, Blunt Force Trauma",
-    //   "class": "Arakocra Monk",
-    //   "icon": "images/ben.png",
-    //   "stats": {
-    //     "str":  8, "con": 16, "dex": 18,
-    //     "int":  8, "wis": 16, "cha":  8
-    //   }
-    // },
-    // Ed
-    "ed": {
-      "name": "Ed",
-      "title": "Lord of All The Darkness",
-      "class": "Tiefling Bard",
-      "icon": "images/ed.png",
+    "laura": {
+      "name": "Laura",
+      "shorten_name": 0,
+      "title": "Amazing Magician",
+      "raceclass": "Human fighter",
+      "icon": "images/example/laura.png",
       "stats": {
-        "str": 16, "con": 11, "dex": 13,
-        "int": 12, "wis": 13, "cha": 19
+        "str": "13",
+        "con": "12",
+        "dex": "16",
+        "int": "12",
+        "wis": "10",
+        "cha": "15"
       }
-    },
-    // // Siebolt
-    // "siebolt": {
-    //   "name": "Siebolt",
-    //   "title": "Loyal Soldier",
-    //   "class": "Fighter",
-    //   "icon": "images/siebolt.png",
-    //   "stats": {
-    //     "str": 16, "con": 15, "dex": 13,
-    //     "int": 10, "wis": 14, "cha":  9
-    //   }
-    // },
-    // Beautiful Assistant
-    "beautifulassistant": {
-      "name": "Beautiful Assistant",
-      "title": "Resident Fuzzball",
-      "class": "Stoat",
-      "icon": "images/beautifulassistant.png",
-      "stats": {
-        "str":  3, "con":  8, "dex": 16,
-        "int":  2, "wis": 12, "cha":  3
-      }
-    },
-
+    }
   }
-};
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Character Cards Editor</title>
+
+    <link rel="stylesheet" href="style/editor.css">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="scripts/common/Data.js" charset="utf-8"></script>
+    <script src="scripts/common/util.js" charset="utf-8"></script>
+    <script src="scripts/common/Protocol.js" charset="utf-8"></script>
+
+    <script src="scripts/editor/Forms.js" charset="utf-8"></script>
+    <script src="scripts/editor/EditorProtocol.js" charset="utf-8"></script>
+    <script src="scripts/editor/editor.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <p>
+      This is an editor for customizing the output of the applet. <br>
+    </p>
+    <p class="instructions">
+      Right-click the save button and click 'save link as' to save the file.
+      It is best to save it in the 'data' directory (example:
+      <code>/character-cards/data/example.js</code>)so it can be used by the applet.
+    </p>
+    <a id="saveButton" type="application/javascript" download="dataset.js">Save</a>
+    <input id="loadButton" type="file" name="dataFile">
+    <label for="loadButton">Load</label>
+    <a id="newButton">New</a>
+    <hr>
+
+    <div id="container">
+      <noscript>
+        <p>You need to enable Javascript to run this app.</p>
+      </noscript>
+      <div id="editor">
+        <ul class="tabs"></ul>
+        <div class="cardForms"></div>
+      </div>
+      <div id="appletContainer">
+        <iframe id="applet" name="applet" height=400 width=400 frameborder=0></iframe>
+      </div>
+    </div>
+
+    <hr>
+
+    <a href="https://www.freepik.com/free-photos-vectors/background">
+      Paper texture by Dotstudio - Freepik.com
+    </a>
+  </body>
+</html>

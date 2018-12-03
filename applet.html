@@ -4,17 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/applet.css">
 
     <!-- JQuery for AJAX calls -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- Card generator library -->
-    <script src="scripts/cardGenerator.js"></script>
 
-    <script src="scripts/script.js"></script>
+    <!-- Libraries -->
+    <script src="scripts/common/Data.js" charset="utf-8"></script>
+    <script src="scripts/common/util.js" charset="utf-8"></script>
+    <script src="scripts/applet/Cards.js" charset="utf-8"></script>
+    <script src="scripts/applet/CardGenerator.js"></script>
+    <script src="scripts/common/Protocol.js" charset="utf-8"></script>
+    <script src="scripts/applet/AppletProtocol.js" charset="utf-8"></script>
+
+    <script src="scripts/applet/AppletParams.js"></script>
+    <script src="scripts/applet/applet.js"></script>
   </head>
 
   <body>
+    <noscript>
+      <p>You need to enable Javascript to run this app.</p>
+    </noscript>
     <div id="cardContainer"></div>
   </body>
 
